@@ -16,6 +16,9 @@ const preview: Preview = {
     },
     backgrounds: { disable: true },
     layout: 'centered',
+    docs: {
+      theme: lightTheme,
+    },
   },
   decorators: [
     withThemeByClassName({
