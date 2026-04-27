@@ -1,0 +1,62 @@
+name: Release — Publish Library Artifact
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test:run
+
+      - name: Build library
+        run: npm run build
+
+      - name: Create release archives
+        run: |
+          cd dist
+          zip -r ../vellum-ds-${{ github.ref_name }}.zip .
+          cd ..
+          tar -czf vellum-ds-${{ github.ref_name }}.tar.gz dist/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Vellum DS ${{ github.ref_name }}
+          body: |
+            ## Vellum Design System ${{ github.ref_name }}
+
+            Install from this release:
+            ```bash
+            # Via GitHub tarball
+            npm install https://github.com/Seyo/vellum-ds/releases/download/${{ github.ref_name }}/vellum-ds-${{ github.ref_name }}.tar.gz
+            ```
+
+            Then import styles in your app entry:
+            ```typescript
+            import '@seyo/vellum-ds/styles'
+            ```
+          files: |
+            vellum-ds-${{ github.ref_name }}.zip
+            vellum-ds-${{ github.ref_name }}.tar.gz
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}

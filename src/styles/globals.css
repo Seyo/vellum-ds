@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Typography ─────────────────────────────────────────── */
+  --font-heading: "IM Fell DW Pica SC", Georgia, serif;
+  --font-body: "EB Garamond", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* ─── Palette: Light (Aged Parchment) ───────────────────── */
+  --color-background: #e8e0cf;
+  --color-lightgray: #c9bfa6;
+  --color-gray: #4a5370;
+  --color-darkgray: #2f3750;
+  --color-dark: #1b2033;
+  --color-secondary: #567b92;
+  --color-tertiary: #9a7b3a;
+  --color-highlight: rgba(139, 105, 40, 0.13);
+
+  /* ─── Shadcn semantic tokens (var() refs so dark-mode overrides cascade) */
+  --color-border: var(--color-lightgray);
+  --color-input: var(--color-lightgray);
+  --color-ring: var(--color-secondary);
+  --color-foreground: var(--color-dark);
+  --color-primary: var(--color-dark);
+  --color-primary-foreground: var(--color-background);
+  --color-secondary-color: var(--color-secondary);
+  --color-secondary-foreground: var(--color-background);
+  --color-muted: var(--color-lightgray);
+  --color-muted-foreground: var(--color-gray);
+  --color-accent: var(--color-highlight);
+  --color-accent-foreground: var(--color-dark);
+  --color-card: var(--color-background);
+  --color-card-foreground: var(--color-dark);
+  --color-popover: var(--color-background);
+  --color-popover-foreground: var(--color-dark);
+  --color-destructive: #c0392b;
+  --color-destructive-foreground: #fef2f2;
+
+  /* ─── Border radius ─────────────────────────────────────── */
+  --radius: 0.375rem;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── Dark mode: class-based (Storybook toggle) ─────────────────────────── */
+.dark {
+  --color-background: #171e2b;
+  --color-lightgray: #2b3448;
+  --color-gray: #92a1b2;
+  --color-darkgray: #c9d4de;
+  --color-dark: #e4ecf2;
+  --color-secondary: #8cc5df;
+  --color-tertiary: #d4b26a;
+  --color-highlight: rgba(80, 140, 180, 0.13);
+}
+
+/* ─── Dark mode: system preference ──────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-background: #171e2b;
+    --color-lightgray: #2b3448;
+    --color-gray: #92a1b2;
+    --color-darkgray: #c9d4de;
+    --color-dark: #e4ecf2;
+    --color-secondary: #8cc5df;
+    --color-tertiary: #d4b26a;
+    --color-highlight: rgba(80, 140, 180, 0.13);
+  }
+}
+
+/* ─── Base layer ─────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
+  }
+}
