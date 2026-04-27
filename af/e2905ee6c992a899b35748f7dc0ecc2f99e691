@@ -1,0 +1,25 @@
+.storybook/main.ts
+  894f833d4067e42b 12-14
+.storybook/preview.ts
+  894f833d4067e42b 19-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "afe2905ee6c992a899b35748f7dc0ecc2f99e691",
+  "prompts": {
+    "894f833d4067e42b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e5409fee-6888-4cac-b3c4-5fdec98dda66",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Emil Nolin",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 3,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}
