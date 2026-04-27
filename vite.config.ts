@@ -11,7 +11,12 @@ export default defineConfig({
     dts({
       include: ['src'],
       exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx'],
-      rollupTypes: true,
+      // rollupTypes is disabled because API Extractor (TS 5.9.3) errors silently on
+      // TypeScript 6 source and emits an empty index.d.ts. With it off, individual
+      // .d.ts files are emitted per source file (under dist/src/) and consumers
+      // resolve types normally — the package.json "types" entry points at
+      // dist/src/index.d.ts.
+      rollupTypes: false,
       tsconfigPath: './tsconfig.app.json',
     }),
   ],

@@ -5,12 +5,12 @@
   "type": "module",
   "main": "./dist/vellum-ds.cjs",
   "module": "./dist/vellum-ds.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vellum-ds.js",
       "require": "./dist/vellum-ds.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/src/index.d.ts"
     },
     "./styles": "./dist/style.css"
   },
