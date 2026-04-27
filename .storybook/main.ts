@@ -18,6 +18,10 @@ const config: StorybookConfig = {
     if (process.env['NODE_ENV'] === 'production') {
       config.base = '/vellum-ds/'
     }
+    // vite-plugin-dts is for the library build only — remove it here
+    config.plugins = (config.plugins ?? []).filter(
+      (p) => !(p && typeof p === 'object' && 'name' in p && p.name === 'vite:dts')
+    )
     return config
   },
 }
