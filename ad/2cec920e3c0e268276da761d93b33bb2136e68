@@ -1,0 +1,111 @@
+src/components/index.ts
+  894f833d4067e42b 1-48
+.gitignore
+  894f833d4067e42b 1-28
+src/components/button.stories.tsx
+  894f833d4067e42b 1-74
+src/index.ts
+  894f833d4067e42b 1-4
+src/components/badge.test.tsx
+  894f833d4067e42b 1-24
+tsconfig.app.json
+  894f833d4067e42b 1-24
+src/components/select.test.tsx
+  894f833d4067e42b 1-19
+src/components/input.test.tsx
+  894f833d4067e42b 1-32
+src/components/input.stories.tsx
+  894f833d4067e42b 1-28
+vitest.config.ts
+  894f833d4067e42b 1-25
+README.md
+  894f833d4067e42b 1-73
+components.json
+  894f833d4067e42b 1-21
+tsconfig.json
+  894f833d4067e42b 1-7
+package.json
+  894f833d4067e42b 1-85
+tsconfig.node.json
+  894f833d4067e42b 1-19
+.storybook/themes.ts
+  894f833d4067e42b 1-65
+src/components/typography.test.tsx
+  894f833d4067e42b 1-35
+src/components/button.tsx
+  894f833d4067e42b 1-61
+src/components/badge.stories.tsx
+  894f833d4067e42b 1-46
+src/styles/globals.css
+  894f833d4067e42b 1-95
+src/components/badge.tsx
+  894f833d4067e42b 1-39
+src/components/input.tsx
+  894f833d4067e42b 1-25
+src/components/tooltip.tsx
+  894f833d4067e42b 1-30
+src/components/typography.tsx
+  894f833d4067e42b 1-59
+src/components/card.test.tsx
+  894f833d4067e42b 1-27
+.storybook/main.ts
+  894f833d4067e42b 1-25
+src/lib/utils.ts
+  894f833d4067e42b 1-6
+src/components/card.tsx
+  894f833d4067e42b 1-79
+src/components/dialog.tsx
+  894f833d4067e42b 1-120
+eslint.config.js
+  894f833d4067e42b 1-22
+.storybook/preview-head.html
+  894f833d4067e42b 1-6
+src/components/dialog.stories.tsx
+  894f833d4067e42b 1-41
+src/components/dialog.test.tsx
+  894f833d4067e42b 1-45
+src/components/select.stories.tsx
+  894f833d4067e42b 1-36
+src/components/select.tsx
+  894f833d4067e42b 1-157
+src/components/tooltip.stories.tsx
+  894f833d4067e42b 1-46
+src/components/card.stories.tsx
+  894f833d4067e42b 1-49
+.github/workflows/storybook-deploy.yml
+  894f833d4067e42b 1-53
+vitest.setup.ts
+  894f833d4067e42b 1
+src/components/button.test.tsx
+  894f833d4067e42b 1-41
+.github/workflows/release.yml
+  894f833d4067e42b 1-62
+src/components/tooltip.test.tsx
+  894f833d4067e42b 1-33
+.storybook/preview.ts
+  894f833d4067e42b 1-31
+src/components/typography.stories.tsx
+  894f833d4067e42b 1-61
+vite.config.ts
+  894f833d4067e42b 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "ad2cec920e3c0e268276da761d93b33bb2136e68",
+  "prompts": {
+    "894f833d4067e42b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e5409fee-6888-4cac-b3c4-5fdec98dda66",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Emil Nolin",
+      "messages": [],
+      "total_additions": 2644,
+      "total_deletions": 694,
+      "accepted_lines": 1951,
+      "overriden_lines": 0
+    }
+  }
+}
