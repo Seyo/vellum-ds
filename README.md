@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
+# Vellum Design System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React 19 component library styled after the *Rime of the Frostmaiden* campaign — aged parchment in the light, frozen night in the dark.
 
-Currently, two official plugins are available:
+**Storybook →** [seyo.github.io/vellum-ds](https://seyo.github.io/vellum-ds)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Using the library
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install from a tagged GitHub release:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install https://github.com/Seyo/vellum-ds/releases/download/v0.1.0/vellum-ds-v0.1.0.tar.gz
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Import the styles once in your app entry (required):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```ts
+import '@seyo/vellum-ds/styles'
 ```
+
+Then use components:
+
+```tsx
+import { Button, Card, CardHeader, CardTitle, CardContent, Badge } from '@seyo/vellum-ds'
+
+export function QuestCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>The Long Dark</CardTitle>
+      </CardHeader>
+      <CardContent className="flex items-center gap-2">
+        <Badge variant="tertiary">Legendary</Badge>
+        <Button variant="tertiary">Accept Quest</Button>
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+### Peer dependencies
+
+```bash
+npm install react@^19 react-dom@^19
+```
+
+---
+
+## Components
+
+| Component | Description |
+|---|---|
+| `Button` | 7 variants including the Vellum-specific `tertiary` (gold) |
+| `Input` | Parchment-styled text input |
+| `Badge` | Inline label with `default`, `secondary`, `tertiary`, `outline`, `destructive` variants |
+| `Card` | Surface container with `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter` |
+| `Dialog` | Modal overlay with portal rendering |
+| `Select` | Radix-powered dropdown with grouped items |
+| `Tooltip` | Hover overlay — wrap your app with `TooltipProvider` |
+| `Typography` | Semantic text component with `h1`–`h4`, `lead`, `body`, `muted`, `code` variants |
+
+---
+
+## Design tokens
+
+Tokens are CSS custom properties defined in `dist/style.css`. Override them on `:root` to customise.
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-background` | `#e8e0cf` (parchment) | `#171e2b` (night) |
+| `--color-dark` | `#1b2033` (ink) | `#e4ecf2` |
+| `--color-secondary` | `#567b92` (frost blue) | `#8cc5df` |
+| `--color-tertiary` | `#9a7b3a` (gold) | `#d4b26a` |
+| `--font-heading` | IM Fell DW Pica SC | |
+| `--font-body` | EB Garamond | |
+| `--font-mono` | IBM Plex Mono | |
+
+Dark mode activates via the `.dark` class on `<html>` or `prefers-color-scheme: dark`.
+
+---
+
+## Development
+
+```bash
+npm install
+npm run dev          # Storybook at localhost:6006
+npm test             # Vitest watch
+npm run build        # Build library → dist/
+npm run build-storybook  # Build static Storybook → storybook-static/
+```
+
+### Adding a component
+
+1. Create `src/components/<name>.tsx` with the component
+2. Add `src/components/<name>.stories.tsx` with at least a `Default` story tagged `['autodocs']`
+3. Add `src/components/<name>.test.tsx` with unit tests
+4. Export from `src/components/index.ts`
+
+---
+
+## Releases
+
+Tag a version to publish a GitHub Release with built artifacts:
+
+```bash
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+The `release.yml` workflow runs tests, builds the library, and attaches `.zip` and `.tar.gz` archives to the release.
