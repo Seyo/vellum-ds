@@ -61,3 +61,16 @@ export type { CharacterCardProps } from './character-card'
 
 export { WikiSectionCard } from './wiki-section-card'
 export type { WikiSectionCardProps } from './wiki-section-card'
+
+export {
+  TimelineLegend,
+  TimelineSessionHeader,
+  TimelineEventCard,
+} from './timeline'
+export type {
+  TimelineLegendProps,
+  TimelineLegendItem,
+  TimelineSessionHeaderProps,
+  TimelineEventCardProps,
+  TimelineEventType,
+} from './timeline'
