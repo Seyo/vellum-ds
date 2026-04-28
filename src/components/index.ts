@@ -46,3 +46,6 @@ export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './tool
 
 export { Typography, typographyVariants } from './typography'
 export type { TypographyProps } from './typography'
+
+export { StatusCard } from './status-card'
+export type { StatusCardProps } from './status-card'
