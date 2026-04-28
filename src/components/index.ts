@@ -55,3 +55,9 @@ export type { MapPinProps, MapPinType } from './map-pin'
 
 export { MapTooltip } from './map-tooltip'
 export type { MapTooltipProps } from './map-tooltip'
+
+export { CharacterCard } from './character-card'
+export type { CharacterCardProps } from './character-card'
+
+export { WikiSectionCard } from './wiki-section-card'
+export type { WikiSectionCardProps } from './wiki-section-card'
