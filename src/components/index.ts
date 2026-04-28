@@ -49,3 +49,9 @@ export type { TypographyProps } from './typography'
 
 export { StatusCard } from './status-card'
 export type { StatusCardProps } from './status-card'
+
+export { MapPin, mapPinDotVariants } from './map-pin'
+export type { MapPinProps, MapPinType } from './map-pin'
+
+export { MapTooltip } from './map-tooltip'
+export type { MapTooltipProps } from './map-tooltip'
